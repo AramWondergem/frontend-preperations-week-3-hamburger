@@ -1,0 +1,63 @@
+:root {
+    --hamburger-color: #D84282;
+    --time-of-change: 1200ms;
+    --hamburger-width: 60px;
+    --hamburger-height: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    width: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 60px;
+}
+
+
+.menu {
+    background: var(--hamburger-color);
+    height: var(--hamburger-height);
+    width: var(--hamburger-width);
+    position: relative;
+    transition: all var(--time-of-change) ease-in-out;
+}
+
+.menu::before, .menu::after {
+    content: "";
+    display: block;
+    background: var(--hamburger-color);
+    width: var(--hamburger-width);
+    height: var(--hamburger-height);
+    position: absolute;
+    transition: all var(--time-of-change) ease-in-out;
+}
+
+.menu::before {
+    bottom: 20px;
+}
+
+.menu::after {
+    top: 20px;
+}
+
+section:hover #menu {
+    background: white;
+    height: 10px;
+    width: 60px;
+    position: relative;
+}
+
+section:hover .menu::before {
+    transform: rotateZ(45deg);
+    bottom: 0;
+}
+
+section:hover .menu::after {
+    transform: rotateZ(-45deg);
+    top: 0;
+}
